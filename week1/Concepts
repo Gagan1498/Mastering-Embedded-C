@@ -1,0 +1,30 @@
+# Week 1 - Day 1: Memory in C
+Date: 3/31
+
+## What I learned
+- Pointers -> & means get the address (what is the address???)
+			  * means it goes to that address (go to that address!!!)
+- * is also called dereferencing
+
+	For ex: int n = 50;
+		int *p = &n;
+		
+		printf("%i", *p); -> 50
+- Memory management: 
+	1. SMA - Static memory allocation: all declared variables (uninitialized local variables and initialized variables). Will be present at compile time. Goes to stack.
+	2. DMA - Dynamic memory allocation: variables declared during run time (uses malloc, calloc, realloc and free). Goes to Heap.
+	3. Data segment - global declared variables
+	4. bss - undeclared global variables
+- Don't forget to use free() or it will do memory leak: It means that when you initialize a variable using malloc (for ex. p), the initialized variable is in stack. But it points to the dynamically allocated variable in heap. If you don't use heap, stack will destroy the value p but the memory in heap is still there and cannot be consumed so it gets wasted. 
+- Use %p for addresses.
+
+
+## Code written
+- week1/day1.c - printed addresses of stack, heap and global variables
+
+## What confused me
+- In above code, I was thinking why did *p not pass &n (i.e. address of n) instead of the actual n value - because that's what was done in previous line.
+  
+  In fact, the 2nd line tells the compiler that *p is a pointer variable which points to an address. So when *p is [rinted, compiler knows that * is mentioned which means dereference n and give the value of it.
+  Remember: If a variable is declared with * -> means it is a pointer variable
+			But anywhere else *p -> means dereference p or go to that address that p holds and get value.
