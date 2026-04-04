@@ -20,7 +20,7 @@ Date: 3/31
 
 
 ## Code written
-- week1/day1.c - printed addresses of stack, heap and global variables
+- week1/day1.c - printed addresses of stack, heap and global variables, swap 2 numbers (w/wout using 3rd variable, using XOR) 
 
 ## What confused me
 - In above code, I was thinking why did *p not pass &n (i.e. address of n) instead of the actual n value - because that's what was done in previous line.
