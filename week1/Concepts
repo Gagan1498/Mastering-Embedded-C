@@ -17,10 +17,12 @@ Date: 3/31
 	4. bss - undeclared global variables
 - Don't forget to use free() or it will do memory leak: It means that when you initialize a variable using malloc (for ex. p), the initialized variable is in stack. But it points to the dynamically allocated variable in heap. If you don't use heap, stack will destroy the value p but the memory in heap is still there and cannot be consumed so it gets wasted. 
 - Use %p for addresses.
-
+- sizeof operator is of type size_t which is unsigned. Use %zu to get value.
+- (1 << 7) - directly means that I am moving 1 to 7th bit and reast all are 0 (bits 0-6).
 
 ## Code written
 - week1/day1.c - printed addresses of stack, heap and global variables, swap 2 numbers (w/wout using 3rd variable, using XOR) 
+- week2/day2.c - print min and max for uint8_t and int8_t
 
 ## What confused me
 - In above code, I was thinking why did *p not pass &n (i.e. address of n) instead of the actual n value - because that's what was done in previous line.
