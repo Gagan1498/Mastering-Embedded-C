@@ -19,14 +19,26 @@ Date: 3/31
 - Use %p for addresses.
 - sizeof operator is of type size_t which is unsigned. Use %zu to get value.
 - (1 << 7) - directly means that I am moving 1 to 7th bit and reast all are 0 (bits 0-6).
+- If you compare below, the compiler converts to specific types:
+	signed  vs unsigned  →  signed gets converted to unsigned
+	smaller type vs bigger type  →  smaller gets converted to bigger
 
 ## Code written
 - week1/day1.c - printed addresses of stack, heap and global variables, swap 2 numbers (w/wout using 3rd variable, using XOR) 
-- week2/day2.c - print min and max for uint8_t and int8_t
+- week1/day2.c - print min and max for uint8_t and int8_t
+- week1/day3.c - palindrome number
 
 ## What confused me
 - In above code, I was thinking why did *p not pass &n (i.e. address of n) instead of the actual n value - because that's what was done in previous line.
   
-  In fact, the 2nd line tells the compiler that *p is a pointer variable which points to an address. So when *p is [rinted, compiler knows that * is mentioned which means dereference n and give the value of it.
-  Remember: If a variable is declared with * -> means it is a pointer variable
+  	In fact, the 2nd line tells the compiler that *p is a pointer variable which points to an address. So when *p is [rinted, compiler knows that * is mentioned which means dereference n and give the value of it.
+  	Remember: If a variable is declared with * -> means it is a pointer variable
 			But anywhere else *p -> means dereference p or go to that address that p holds and get value.
+
+- If you compare a signed vs unsigned, compiler converts it to unsigned...therefore in below code:
+	int8_t a = -1; //11111111 - represented as 2's compliment in compiler (flip all bits thn add 1)
+	uint8_t b = 1; //00000001
+	if (a < b)
+		printf("a is less than b\n"); //when a becomes unsigned, its 255 and b is 1, so this doesn't work.
+	else
+		printf("b is less than a\n"); //this gets printed
