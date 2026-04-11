@@ -65,6 +65,8 @@ printf("%i", *p);  // prints 50
 
 ### Signed vs Unsigned
 
+`uint8_t 255 → int8_t` = -1, not 1. Bits don't change, interpretation does.
+
 **Ranges:**
 - `uint8_t` → 0 to 255 (all 8 bits for value, no sign bit)
 - `int8_t` → -128 to 127 (1 bit for sign, 7 bits for value)
@@ -85,6 +87,12 @@ printf("%i", *p);  // prints 50
 uint8_t x = 255; x++;  // wraps to 0
 int8_t  y = 127; y++;  // wraps to -128 (sign bit flips)
 ```
+
+---
+
+### Signed and unsigned arithamatics
+
+The lesson here is **integer promotion** — any arithmetic in C happens at minimum in int width. uint8_t and int8_t get promoted to int before any operation.
 
 ---
 
