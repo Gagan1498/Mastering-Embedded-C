@@ -2,8 +2,15 @@
 
 ---
 
-## Day 1: Memory in C
-**Date:** 3/31
+## Code Written
+
+| File | What it does |
+|---|---|
+| `week1/day1.c` | Print addresses of stack, heap and global variables, swap 2 numbers (with/without 3rd variable, using XOR) |
+| `week1/day2.c` | Print min and max for `uint8_t` and `int8_t` |
+| `week1/day3.c` | Palindrome number |
+| `week1/day4.c` | Operators and type casting |
+| `week1/day5.c` | Mini project involving type casting, suffix, pointer and stuct |
 
 ---
 
@@ -48,7 +55,7 @@ printf("%i", *p);  // prints 50
 
 - Use `%p` for printing addresses
 - Use `%zu` for `sizeof()` — because `sizeof` returns `size_t` which is unsigned
-- Use suffixes to define literal types: `3.3f` (float), `3u` (unsigned), `3l` (long)
+- Use suffixes to define literal types: `3.3f` (float), `3u` (unsigned), `3l` (long), `3hu` (unsigned uint16_t)
 
 ---
 
@@ -152,18 +159,6 @@ p || q  // = 1  logical OR:  (is p non-zero) OR (q non-zero?)
 ```c
 i++  // i = i + 1, value of i itself changes
 ```
-
----
-
-## Code Written
-
-| File | What it does |
-|---|---|
-| `week1/day1.c` | Print addresses of stack, heap and global variables, swap 2 numbers (with/without 3rd variable, using XOR) |
-| `week1/day2.c` | Print min and max for `uint8_t` and `int8_t` |
-| `week1/day3.c` | Palindrome number |
-| `week1/day4.c` | Operators and type casting |
-
 
 ---
 

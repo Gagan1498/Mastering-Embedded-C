@@ -38,12 +38,12 @@ int main(){
     printf("%s\n", temp > 100 ? "critical" : temp > 50 ? "warning" : "normal"); // normal; : acts as else/if statement breaker
 
     // --- Logical vs Bitwise ---
-    int p = 0;   // 0101
+    int p = 5;   // 0101
     int q = 3;   // 0011
     printf("\n=== Logical vs Bitwise ===\n");
-    printf("p && q = %d\n", p && q);  // 1; logical operator: is q true (1 or greater) AND q is also true?
-    printf("p & q  = %d\n", p & q);  // 1
-    printf("p || q = %d\n", p || q); // 1; bitwise operator: bit by bit operation.
+    printf("p && q = %d\n", p && q);  // 1; logical operator: (is q true?) AND (q is true?). True means 1 or greater than 1.
+    printf("p & q  = %d\n", p & q);  // 1; bitwise operator: bit by bit operation.
+    printf("p || q = %d\n", p || q); // 1; (is p true?) OR (is q true?)
     printf("p | q  = %d\n", p | q);  // 7
 
     // --- The embedded trap ---
