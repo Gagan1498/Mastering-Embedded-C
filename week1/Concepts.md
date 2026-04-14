@@ -170,6 +170,7 @@ i++  // i = i + 1, value of i itself changes
 - What is two's complement and why does C use it instead of sign-magnitude?
 - What does `uint8_t x = 255; x++` give you and why?
 - What happens when you swap a variable with itself using XOR?
+- Why use enum over define?
 
 ---
 
