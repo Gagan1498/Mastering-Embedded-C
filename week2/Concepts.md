@@ -7,6 +7,7 @@
 | File | What it does |
 |---|---|
 | `week2/day6.c` | Using bitwise operators and typedef and enums |
+| `week2/day7.c` | Using bitwise operators and typedef and enums |
 
 ---
 
