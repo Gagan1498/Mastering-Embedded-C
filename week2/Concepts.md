@@ -142,6 +142,27 @@ switch(state) {
 
 ---
 
+### Structure
+- In structure, you can define how many bits does a member comprise of by using `:`. For ex:
+```
+typedef struct{
+    uint8_t pin0: 1; //1 bit long
+    uint8_t reserved : 7; //7 bit long
+}Gpiobits;
+```
+
+**Padding concept**
+- When you add a new member to a struct, the compiler may insert extra bytes (called padding) to ensure proper memory alignment for each member. This can increase the total size of the struct, even if the added member is small.
+- The struct’s total size is padded so that it is a multiple of the alignment requirement of its largest member, not the smallest.
+```
+struct A {
+    char a;   // 1 byte
+    int b;    // 4 bytes
+};
+```
+Here total size of structure will be 1 byte + 4 byte + 3 byte (Padding, to make equal to 4 bytes).
+---
+
 ## Interview Questions
 - Why use enum over define?
 
