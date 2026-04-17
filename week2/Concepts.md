@@ -8,6 +8,8 @@
 |---|---|
 | `week2/day6.c` | Using bitwise operators and typedef and enums |
 | `week2/day7.c` | Using bitwise operators and typedef and enums |
+| `week2/day8.c` | GPIO Bit Field Struct |
+| `week2/day9.c` | Multi-Device Bus Config Register |
 
 ---
 
