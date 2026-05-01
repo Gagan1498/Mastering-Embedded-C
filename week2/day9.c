@@ -50,37 +50,38 @@ int main(){
 
     uint16_t reg_bits = 0x0;
 
-    reg_bits |= Mode;
+    reg_bits &= ~Mode;
+    reg_bits |= (0b11 << 0);
     printf("After Mode=read-write: HEX=0x%04x, BIN=", reg_bits);
     print_binary(reg_bits);
     printf("\n");
     
     reg_bits &= ~Protocol;
-    reg_bits |= (01 << 2);
+    reg_bits |= (0b01 << 2);
     printf("After Protocol=SPI: HEX=0x%04x, BIN=", reg_bits);
     print_binary(reg_bits);
     printf("\n");
 
     reg_bits &= ~Voltage;
-    reg_bits |= (01 << 4);
+    reg_bits |= (0b01 << 4);
     printf("After Voltage=3.3V: HEX=0x%04x, BIN=", reg_bits);
     print_binary(reg_bits);
     printf("\n");
 
     reg_bits &= ~RetryCount;
-    reg_bits |= (101 << 6);
+    reg_bits |= (0b101 << 6);
     printf("After RetryCount=5: HEX=0x%04x, BIN=", reg_bits);
     print_binary(reg_bits);
     printf("\n");
 
     reg_bits &= ~DeviceAddr;
-    reg_bits |= (011 << 9);
+    reg_bits |= (0b011 << 9);
     printf("After DeviceAddr=3: HEX=0x%04x, BIN=", reg_bits);
     print_binary(reg_bits);
     printf("\n");
 
     reg_bits &= ~BusSpeed;
-    reg_bits |= (10 << 11);
+    reg_bits |= (0b10 << 11);
     printf("After DeviceAddr=3: HEX=0x%04x, BIN=", reg_bits);
     print_binary(reg_bits);
     printf("\n");
