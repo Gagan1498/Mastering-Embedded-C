@@ -8,6 +8,7 @@
 |---|---|
 | `week3/day1.c` | Traverses an int array using pointer arithmetic, prints value and address with `%p`. Demonstrates array decay on function call. |
 | `week3/day2.c` | Pointers and functions — add_ten, swap, update_pointer, reset_buffer exercises. |
+| `week3/day3.c` | const pointers — scale_readings (int *) and print_sensor (const int *) with in-place modification pattern. |
 
 ---
 
@@ -81,6 +82,49 @@ int main() {
 
 ---
 
+## Day 3 — const Pointers
+
+### Three Forms — Read Right to Left
+
+| Declaration | Meaning | Can change `*p`? | Can move `p`? |
+|---|---|---|---|
+| `const int *p` | pointer to a const int | ❌ No | ✅ Yes |
+| `int * const p` | const pointer to an int | ✅ Yes | ❌ No |
+| `const int * const p` | const pointer to a const int | ❌ No | ❌ No |
+
+**Right-to-left reading trick:** Start at `p`, read right to left. `const` before `*` locks the value. `const` after `*` locks the pointer.
+
+### In-place Modification Pattern
+
+```c
+void scale_readings(int *data, int len, int factor) {
+    for (int i = 0; i < len; i++)
+        data[i] *= factor;
+}
+
+void print_sensor(const int *data, int len) {
+    for (int i = 0; i < len; i++)
+        printf("index %d: %d\n", i, data[i]);
+}
+```
+
+- `scale_readings` takes `int *` — needs to modify values in place
+- `print_sensor` takes `const int *` — promises not to modify, read only
+- No return value needed — `scale_readings` modifies the original array directly through the pointer
+- This is the standard embedded pattern: pass a buffer in, function fills/modifies it, use it after
+
+### Embedded Use Cases
+
+| Use case | Form |
+|---|---|
+| Hardware register at fixed address (read-only) | `const volatile uint32_t * const` |
+| String literals / lookup tables in flash | `const char *` |
+| Function that should not modify caller's buffer | `const int *` parameter |
+
+
+---
+
+
 ## Interview Questions
 
 **Day 1**
@@ -97,5 +141,10 @@ int main() {
 - Why does `sizeof(buf) / sizeof(int)` not give the array length inside a function?
 - What is the difference between `buf[i] = 0` and `buf = NULL` inside a function — which one affects the caller?
 - Why do arithmetic and XOR swap break when both pointers point to the same address?
+
+**Day 3**
+- What is the difference between `const int *p` and `int * const p`?
+- Which form would you use for a function parameter that should not modify the caller's array?
+- Which form would you use for a pointer to a hardware register at a fixed address?
 
 ---
