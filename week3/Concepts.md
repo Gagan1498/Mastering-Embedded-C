@@ -10,6 +10,8 @@
 | `week3/day2.c` | Pointers and functions — add_ten, swap, update_pointer, reset_buffer exercises. |
 | `week3/day3.c` | const pointers — scale_readings (int *) and print_sensor (const int *) with in-place modification pattern. |
 | `week3/day4.c` | Function pointers — dispatch table with ops[3], callback pattern with apply(). |
+| `week3/day5.c` | Mini project - all concepts of week 3 |
+
 
 ---
 
